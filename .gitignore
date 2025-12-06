@@ -1,12 +1,65 @@
-.vercel
-node_modules
+# Dependencies
+node_modules/
+apps/**/node_modules/
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+apps/**/coverage
+
+# Production builds
+/build
+/dist
+apps/**/build
+apps/**/dist
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 /.env
 /.env.local
 /.env.*
 apps/**/.env
 apps/**/.env.local
 apps/**/.env.*
-apps/**/node_modules
+
+# Vercel
+.vercel
+apps/**/.vercel
+
+# Firebase
 service-account.json
-.env
-.env.local
+.firebase/
+.firebaserc
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+.cache
+.temp
+*.log
+

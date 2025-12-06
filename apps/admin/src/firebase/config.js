@@ -7,12 +7,12 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore, initializeFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY || 'AIzaSyAsZ-PzFzZnEseovRojBT92uLNkE-DJyNU',
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN || 'mesbois-2.firebaseapp.com',
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID || 'mesbois-2',
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET || 'mesbois-2.firebasestorage.app',
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID || '102290138304',
-  appId: process.env.REACT_APP_FIREBASE_APP_ID || '1:102290138304:web:0b5f44391cc1fea6baf925'
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
