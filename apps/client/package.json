@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "Client app for MesBois",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "dev": "react-scripts start",
     "start": "react-scripts start",
