@@ -1,18 +1,10 @@
 {
-  "version": 2,
-  "builds": [
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "rewrites": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    },
-    { "src": "api/order-confirmation.js", "use": "@vercel/node" }
-  ],
-  "routes": [
-    { "src": "^/api/order-confirmation$", "dest": "/api/order-confirmation.js" },
-    { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/index.html" }
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
