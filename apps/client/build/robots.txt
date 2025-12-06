@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard/
+Disallow: /checkout/
+Disallow: /payment/
+Disallow: /suivi/
+Disallow: /billing/
+
+Sitemap: https://jeferco.boisdechauffages.com/sitemap.xml
