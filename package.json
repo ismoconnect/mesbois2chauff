@@ -1,0 +1,63 @@
+{
+  "name": "mesbois-2",
+  "version": "1.0.0",
+  "description": "Application web de vente de bois de chauffage - Copie dupliquée",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "cloudinary-react": "^1.7.0",
+    "firebase": "^9.9.0",
+    "firebase-admin": "^13.6.0",
+    "framer-motion": "^7.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-hook-form": "^7.34.2",
+    "react-hot-toast": "^2.4.0",
+    "react-icons": "^4.4.0",
+    "react-intersection-observer": "^9.4.1",
+    "react-lazy-load-image-component": "^1.6.0",
+    "react-query": "^3.39.2",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "styled-components": "^5.3.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "npm run dev:client",
+    "dev": "npm run dev:client",
+    "build": "npm run build:client && npm run build:admin",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "dev:client": "npm --workspace apps/client start",
+    "build:client": "npm --workspace apps/client run build",
+    "dev:admin": "npm --workspace apps/admin start",
+    "build:admin": "npm --workspace apps/admin run build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.26"
+  }
+}

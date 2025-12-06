@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    },
+    { "src": "api/order-status.js", "use": "@vercel/node" },
+    { "src": "api/cron-awaiting-payment.js", "use": "@vercel/node" },
+    { "src": "api/cron-abandoned-carts.js", "use": "@vercel/node" },
+    { "src": "api/settings-payments.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "^/api/order-status$", "dest": "/api/order-status.js" },
+    { "src": "^/api/cron-awaiting-payment$", "dest": "/api/cron-awaiting-payment.js" },
+    { "src": "^/api/cron-abandoned-carts$", "dest": "/api/cron-abandoned-carts.js" },
+    { "src": "^/api/settings-payments$", "dest": "/api/settings-payments.js" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "crons": [
+    { "path": "/api/cron-awaiting-payment", "schedule": "0 8 * * *" },
+    { "path": "/api/cron-abandoned-carts", "schedule": "0 9 * * *" }
+  ]
+}

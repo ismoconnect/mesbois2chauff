@@ -1,0 +1,115 @@
+// Firestore Security Rules
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    // ---- helper admin (basé sur la collection /admins/{uid}) ----
+    function isAdmin() {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+        && get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.enabled == true;
+    }
+
+    // Admins
+    match /admins/{uid} {
+      allow read: if isSignedIn();
+      allow write: if false;
+    }
+
+    // Users
+    match /users/{uid} {
+      // créer son propre user
+      allow create: if isOwner(uid);
+
+      // lecture / update : utilisateur connecté OU admin
+      allow read, update: if isSignedIn() || isAdmin();
+
+      // suppression : admin uniquement
+      allow delete: if isAdmin();
+    }
+
+    // Products
+    match /products/{productId} {
+      allow read: if true;
+      // création/modif/suppression réservées aux admins
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Orders
+    match /orders/{orderId} {
+      // Création par tout utilisateur connecté
+      allow create: if isSignedIn();
+
+      // Lecture: propriétaire (client) OU admin
+      allow read: if isOwner(resource.data.userId) || isAdmin();
+
+      // Update / delete: propriétaire OU admin
+      allow update, delete: if isOwner(resource.data.userId) || isAdmin();
+    }
+
+    // Reviews
+    match /reviews/{reviewId} {
+      allow read: if true;
+      allow create: if isSignedIn()
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.productId is string
+        && request.resource.data.rating is number
+        && request.resource.data.rating >= 1 && request.resource.data.rating <= 5;
+      allow update, delete: if isSignedIn();
+    }
+
+    // Coupons (lecture publique)
+    match /settings/coupons/items/{couponId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /coupons/{code} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Autres documents dans /settings
+    match /settings/{docId} {
+      allow read: if true;
+      // écriture réservée aux admins
+      allow write: if isAdmin();
+    }
+
+    // RIB (paramètres paiement)
+    match /rib/{docId} {
+      // lecture autorisée aux utilisateurs connectés (client ou admin)
+      allow read: if isSignedIn();
+      // écriture réservée aux admins (via l'admin)
+      allow write: if isAdmin();
+    }
+
+    // PayPal (paramètres paiement)
+    match /paypal/{docId} {
+      // lecture autorisée aux utilisateurs connectés (client ou admin)
+      allow read: if isSignedIn();
+      // écriture réservée aux admins (via l'admin)
+      allow write: if isAdmin();
+    }
+
+    // Carts
+    match /carts/{uid} {
+      // accès à son propre panier ou admin
+      allow read, write: if isOwner(uid) || isAdmin();
+    }
+
+    // Catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

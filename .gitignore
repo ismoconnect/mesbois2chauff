@@ -1,0 +1,9 @@
+.vercel
+node_modules
+/.env
+/.env.local
+/.env.*
+apps/**/.env
+apps/**/.env.local
+apps/**/.env.*
+apps/**/node_modules
