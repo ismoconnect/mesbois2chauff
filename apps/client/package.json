@@ -4,7 +4,7 @@
   "private": true,
   "description": "Client app for MesBois",
   "engines": {
-    "node": "22.x"
+    "node": "18.x"
   },
   "scripts": {
     "dev": "react-scripts start",
