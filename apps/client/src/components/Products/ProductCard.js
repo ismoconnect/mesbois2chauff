@@ -1,4 +1,6 @@
 import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
@@ -37,7 +39,7 @@ const ImageContainer = styled.div`
   }
 `;
 
-const ProductImage = styled.img`
+const ProductImage = styled(LazyLoadImage)`
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -284,11 +286,15 @@ const ProductCard = ({ product }) => {
         <ProductImage
           src={imageUrl}
           alt={product.name}
+          effect="blur"
+          wrapperProps={{
+            style: { display: 'block', width: '100%', height: '100%' }
+          }}
           onError={(e) => {
-            e.target.src = 'https://picsum.photos/seed/fallback/600/400';
+            e.target.style.display = 'none'; // Cacher l'image cassée si le fallback échoue aussi
           }}
         />
-        
+
         {product.sale && (
           <Badge type="sale">{t('product_card.promo')}</Badge>
         )}

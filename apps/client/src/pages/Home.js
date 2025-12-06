@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import styled from 'styled-components';
 import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -744,13 +746,31 @@ const Home = () => {
         <HeroVisual className="animate-fade-in">
           <HeroImageGrid>
             <HeroImage>
-              <img src={categoryImages.hero1} alt="Bois de chauffage" />
+              <LazyLoadImage
+                src={categoryImages.hero1}
+                alt="Bois de chauffage"
+                effect="blur"
+                wrapperProps={{ style: { display: 'block', width: '100%', height: '100%' } }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
             </HeroImage>
             <HeroImage>
-              <img src={categoryImages.hero2} alt="Pellets" />
+              <LazyLoadImage
+                src={categoryImages.hero2}
+                alt="Pellets"
+                effect="blur"
+                wrapperProps={{ style: { display: 'block', width: '100%', height: '100%' } }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
             </HeroImage>
             <HeroImage>
-              <img src={categoryImages.hero3} alt="Poêles" />
+              <LazyLoadImage
+                src={categoryImages.hero3}
+                alt="Poêles"
+                effect="blur"
+                wrapperProps={{ style: { display: 'block', width: '100%', height: '100%' } }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
             </HeroImage>
           </HeroImageGrid>
         </HeroVisual>
@@ -767,7 +787,13 @@ const Home = () => {
         <CategoriesGrid>
           {categories.map(cat => (
             <CategoryCard key={cat.key} to={`/${currentLang}/products?main=${cat.key}`} className="animate-fade-in">
-              <img src={categoryImages[cat.key]} alt={cat.name} />
+              <LazyLoadImage
+                src={categoryImages[cat.key]}
+                alt={cat.name}
+                effect="blur"
+                wrapperProps={{ style: { display: 'block', width: '100%', height: '100%' } }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
               <CategoryContent>
                 <CategoryName>{cat.name}</CategoryName>
                 <CategoryDescription>{cat.description}</CategoryDescription>
