@@ -7,3 +7,6 @@ apps/**/.env
 apps/**/.env.local
 apps/**/.env.*
 apps/**/node_modules
+service-account.json
+.env
+.env.local
