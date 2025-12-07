@@ -504,6 +504,14 @@ const Checkout = () => {
           setLoading(false);
           return toast.error(t('checkout.error_check_create_account'), { id: 'checkout-auth' });
         }
+
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+          setLoading(false);
+          return toast.error(t('checkout.error_invalid_email'));
+        }
+
         if (!accountPassword || accountPassword.length < 6) {
           setLoading(false);
           return toast.error(t('checkout.error_password_required'));
