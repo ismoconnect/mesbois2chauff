@@ -7,6 +7,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { createUser } from '../firebase/auth';
 import toast from 'react-hot-toast';
 import { sendEmailVerification, getAuth } from 'firebase/auth';
+import { isValidEmail } from '../utils/emailValidator';
 
 const RegisterContainer = styled.div`
   min-height: 80vh;
@@ -219,9 +220,8 @@ const Register = () => {
   };
 
   const validateForm = () => {
-    // Validate email format
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(formData.email)) {
+    // Validate email format with real TLD validation
+    if (!isValidEmail(formData.email)) {
       setError(t('checkout.error_invalid_email'));
       return false;
     }
@@ -374,7 +374,7 @@ const Register = () => {
                 placeholder={t('auth.register_email_placeholder')}
                 value={formData.email}
                 onChange={handleChange}
-                pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}"
                 title={t('checkout.error_invalid_email')}
                 required
               />

@@ -12,6 +12,7 @@ import toast from 'react-hot-toast';
 import { getCouponByCode, validateAndComputeDiscount } from '../firebase/coupons';
 import { translateProductName } from '../utils/productTranslations';
 import { getFirebaseAuthErrorKey } from '../utils/firebaseErrorMapper';
+import { isValidEmail } from '../utils/emailValidator';
 
 const CheckoutContainer = styled.div`
   max-width: 1400px;
@@ -505,12 +506,12 @@ const Checkout = () => {
           return toast.error(t('checkout.error_check_create_account'), { id: 'checkout-auth' });
         }
 
-        // Validate email format with strict regex
-        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (!emailRegex.test(formData.email)) {
+        // Validate email format with real TLD validation
+        if (!isValidEmail(formData.email)) {
           setLoading(false);
-          return toast.error(t('checkout.error_invalid_email'));
+          return toast.error(t('checkout.error_invalid_email'), { id: 'invalid-email' });
         }
+
 
         if (!accountPassword || accountPassword.length < 6) {
           setLoading(false);
@@ -1097,7 +1098,7 @@ const Checkout = () => {
                   placeholder={t('checkout.email')}
                   value={formData.email}
                   onChange={handleChange}
-                  pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                  pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}"
                   title={t('checkout.error_invalid_email')}
                   required
                   $withLeftIcon
