@@ -7,7 +7,7 @@ import { useCart } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
 import { createOrder } from '../firebase/orders';
 import { createUser, signInUser } from '../firebase/auth';
-import { sendEmailVerification } from 'firebase/auth';
+import { sendEmailVerification, getAuth } from 'firebase/auth';
 import toast from 'react-hot-toast';
 import { getCouponByCode, validateAndComputeDiscount } from '../firebase/coupons';
 import { translateProductName } from '../utils/productTranslations';
@@ -522,7 +522,11 @@ const Checkout = () => {
           return toast.error(regRes.error || t('checkout.error_create_account_failed'));
         }
         currentUser = regRes.user;
-        try { await sendEmailVerification(currentUser); } catch { }
+        try {
+          const auth = getAuth();
+          auth.languageCode = currentLang;
+          await sendEmailVerification(currentUser);
+        } catch { }
       }
 
       const orderData = {

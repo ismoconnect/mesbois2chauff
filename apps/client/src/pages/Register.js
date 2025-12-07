@@ -6,7 +6,7 @@ import { FiEye, FiEyeOff, FiMail, FiLock, FiUser, FiPhone, FiMapPin } from 'reac
 import { useAuth } from '../contexts/AuthContext';
 import { createUser } from '../firebase/auth';
 import toast from 'react-hot-toast';
-import { sendEmailVerification } from 'firebase/auth';
+import { sendEmailVerification, getAuth } from 'firebase/auth';
 
 const RegisterContainer = styled.div`
   min-height: 80vh;
@@ -257,6 +257,10 @@ const Register = () => {
 
       if (result.success) {
         try {
+          // Set Firebase language to match user's chosen language
+          const auth = getAuth();
+          auth.languageCode = currentLang;
+
           await sendEmailVerification(result.user, {
             url: 'https://webshopbrennholzkaufen.boisdechauffages.com/auth/action',
             handleCodeInApp: true

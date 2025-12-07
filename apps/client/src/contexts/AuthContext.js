@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChange(async (firebaseUser) => {
       if (firebaseUser) {
         setUser(firebaseUser);
-        
+
         // Récupérer les données utilisateur depuis Firestore
         const userDataResult = await getUserData(firebaseUser.uid);
         if (userDataResult.success) {
@@ -65,8 +65,8 @@ export const AuthProvider = ({ children }) => {
     return res;
   };
 
-  const requestPasswordReset = async (email) => {
-    return await resetPassword(email);
+  const requestPasswordReset = async (email, lang = 'fr') => {
+    return await resetPassword(email, lang);
   };
 
   const value = {

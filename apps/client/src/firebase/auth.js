@@ -82,8 +82,11 @@ export const getUserData = async (uid) => {
 };
 
 // Réinitialiser le mot de passe
-export const resetPassword = async (email) => {
+export const resetPassword = async (email, lang = 'fr') => {
   try {
+    // Set Firebase language to match user's chosen language
+    auth.languageCode = lang;
+
     await sendPasswordResetEmail(auth, email, {
       url: 'https://webshopbrennholzkaufen.boisdechauffages.com/auth/action',
       handleCodeInApp: true

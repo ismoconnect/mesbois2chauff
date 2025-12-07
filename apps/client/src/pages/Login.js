@@ -169,7 +169,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const [showReset, setShowReset] = useState(false);
   const [resetEmail, setResetEmail] = useState('');
-  
+
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -222,7 +222,7 @@ const Login = () => {
 
     try {
       const result = await signInUser(formData.email, formData.password);
-      
+
       if (result.success) {
         toast.success(t('auth.login_success'));
         navigate(`/${currentLang}/dashboard`, { replace: true });
@@ -244,7 +244,7 @@ const Login = () => {
     }
 
     try {
-      const result = await resetPassword(emailToUse.trim());
+      const result = await resetPassword(emailToUse.trim(), currentLang);
       if (result.success) {
         toast.success(t('auth.login_reset_email_sent'));
         setShowReset(false);
@@ -260,9 +260,9 @@ const Login = () => {
     <LoginContainer>
       <LoginCard>
         <LoginTitle>{t('auth.login_title')}</LoginTitle>
-        
+
         {error && <ErrorMessage>{error}</ErrorMessage>}
-        
+
         <Form onSubmit={handleSubmit}>
           <InputGroup>
             <InputIcon>
@@ -278,7 +278,7 @@ const Login = () => {
               $withLeftIcon
             />
           </InputGroup>
-          
+
           <InputGroup>
             <InputIcon>
               <FiLock size={20} />
@@ -300,11 +300,11 @@ const Login = () => {
               {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
             </PasswordToggle>
           </InputGroup>
-          
+
           <Button type="submit" disabled={loading}>
             {loading ? t('auth.login_submitting') : t('auth.login_submit')}
           </Button>
-          
+
           <ForgotPassword type="button" onClick={handleForgotPassword}>
             {t('auth.login_forgot_password')}
           </ForgotPassword>
@@ -341,7 +341,7 @@ const Login = () => {
             </div>
           )}
         </Form>
-        
+
         <SignupLink>
           {t('auth.login_no_account')} <Link to={`/${currentLang}/register`}>{t('auth.login_signup_link')}</Link>
         </SignupLink>
