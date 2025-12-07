@@ -958,4 +958,23 @@
     "default_title": "brennholzkaufen - Bois de Chauffage de Qualité | Livraison Rapide",
     "default_description": "Vente de bois de chauffage de qualité. Bûches, granulés et pellets livrés chez vous. Service rapide et professionnel."
   }
+,
+  "suivi": {
+    "pdf": {
+      "order": "Commande",
+      "date": "Date",
+      "status": "Statut",
+      "delivery_address": "Adresse de livraison",
+      "phone": "Tél",
+      "article": "Article",
+      "qty": "Qté",
+      "unit_price": "Prix Unit.",
+      "total": "Total",
+      "subtotal": "Sous-total",
+      "delivery": "Livraison",
+      "thank_you": "Merci de votre confiance.",
+      "auto_generated": "Document généré automatiquement par brennholzkaufen.",
+      "invoice": "facture"
+    }
+  }
 }

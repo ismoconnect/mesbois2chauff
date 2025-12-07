@@ -293,21 +293,21 @@ const SuiviItinerary = () => {
     doc.text('brennholzkaufen', 14, 22);
     doc.setFontSize(10);
     doc.setTextColor(100);
-    doc.text(`Commande #${order.id.slice(-8)}`, 14, 30);
-    doc.text(`Date: ${new Date(order.createdAt.seconds * 1000).toLocaleDateString(currentLang === 'en' ? 'en-US' : `${currentLang}-${currentLang.toUpperCase()}`)}`, 14, 35);
-    doc.text(`Statut: ${t(`suivi.status.${order.status}`)}`, 14, 40);
+    doc.text(`${t('suivi.pdf.order')} #${order.id.slice(-8)}`, 14, 30);
+    doc.text(`${t('suivi.pdf.date')}: ${new Date(order.createdAt.seconds * 1000).toLocaleDateString(currentLang === 'en' ? 'en-US' : `${currentLang}-${currentLang.toUpperCase()}`)}`, 14, 35);
+    doc.text(`${t('suivi.pdf.status')}: ${t(`suivi.status.${order.status}`)}`, 14, 40);
     let startY = 55;
     if (order.shippingAddress) {
       doc.setFontSize(12);
       doc.setTextColor(0);
-      doc.text('Adresse de livraison:', 14, startY);
+      doc.text(`${t('suivi.pdf.delivery_address')}:`, 14, startY);
       doc.setFontSize(10);
       doc.setTextColor(60);
       doc.text(order.shippingAddress.fullName || '', 14, startY + 6);
       doc.text(order.shippingAddress.address || '', 14, startY + 11);
       doc.text(`${order.shippingAddress.postalCode || ''} ${order.shippingAddress.city || ''}`, 14, startY + 16);
       if (order.shippingAddress.phone) {
-        doc.text(`Tél: ${order.shippingAddress.phone}`, 14, startY + 21);
+        doc.text(`${t('suivi.pdf.phone')}: ${order.shippingAddress.phone}`, 14, startY + 21);
       }
       startY += 30;
     }
@@ -319,7 +319,7 @@ const SuiviItinerary = () => {
     ]);
     autoTable(doc, {
       startY: startY,
-      head: [['Article', 'Qté', 'Prix Unit.', 'Total']],
+      head: [[t('suivi.pdf.article'), t('suivi.pdf.qty'), t('suivi.pdf.unit_price'), t('suivi.pdf.total')]],
       body: tableRows,
       theme: 'grid',
       headStyles: { fillColor: [44, 85, 48], textColor: 255 },
@@ -330,17 +330,17 @@ const SuiviItinerary = () => {
     doc.setTextColor(0);
     const subTotal = order.total - (order.delivery?.cost || 0);
     const deliveryCost = order.delivery?.cost || 0;
-    doc.text(`Sous-total: ${subTotal.toFixed(2)} €`, 140, finalY);
-    doc.text(`Livraison: ${deliveryCost.toFixed(2)} €`, 140, finalY + 5);
+    doc.text(`${t('suivi.pdf.subtotal')}: ${subTotal.toFixed(2)} €`, 140, finalY);
+    doc.text(`${t('suivi.pdf.delivery')}: ${deliveryCost.toFixed(2)} €`, 140, finalY + 5);
     doc.setFontSize(12);
     doc.setFont(undefined, 'bold');
-    doc.text(`Total: ${order.total.toFixed(2)} €`, 140, finalY + 12);
+    doc.text(`${t('suivi.pdf.total')}: ${order.total.toFixed(2)} €`, 140, finalY + 12);
     doc.setFontSize(8);
     doc.setFont(undefined, 'normal');
     doc.setTextColor(150);
-    doc.text('Merci de votre confiance.', 14, finalY + 30);
-    doc.text('Document généré automatiquement par brennholzkaufen.', 14, finalY + 35);
-    doc.save(`facture_${order.id.slice(-8)}.pdf`);
+    doc.text(t('suivi.pdf.thank_you'), 14, finalY + 30);
+    doc.text(t('suivi.pdf.auto_generated'), 14, finalY + 35);
+    doc.save(`${t('suivi.pdf.invoice')}_${order.id.slice(-8)}.pdf`);
   };
 
   useEffect(() => {
