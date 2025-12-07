@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet';
 import styled, { css } from 'styled-components';
 import Footer from './Footer';
+import SEO from '../SEO';
 
 const LayoutContainer = styled.div`
   min-height: 100vh;
@@ -117,10 +118,7 @@ const Layout = ({ children, $noHeader }) => {
 
   return (
     <LayoutContainer $noHeader={$noHeader}>
-      <Helmet>
-        <title>{t('meta.title', 'brennholzkaufen - Bois de Chauffage')}</title>
-        <meta name="description" content={t('meta.description', 'Vente de bois de chauffage de qualité.')} />
-      </Helmet>
+      <SEO />
       <MainContent>
         {children}
       </MainContent>

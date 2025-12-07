@@ -953,4 +953,9 @@
     "password_updated_redirect": "Mot de passe mis Ã  jour. Redirectionâ€¦",
     "password_update_failed": "Impossible de mettre Ã  jour le mot de passe."
   }
+,
+  "seo": {
+    "default_title": "brennholzkaufen - Bois de Chauffage de Qualité | Livraison Rapide",
+    "default_description": "Vente de bois de chauffage de qualité. Bûches, granulés et pellets livrés chez vous. Service rapide et professionnel."
+  }
 }
