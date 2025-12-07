@@ -219,6 +219,13 @@ const Register = () => {
   };
 
   const validateForm = () => {
+    // Validate email format
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(formData.email)) {
+      setError(t('checkout.error_invalid_email'));
+      return false;
+    }
+
     if (formData.password !== formData.confirmPassword) {
       setError(t('auth.register_password_mismatch'));
       return false;
