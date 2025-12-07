@@ -921,5 +921,28 @@
     "privacy_policy": "política de privacidad",
     "accept": "Aceptar",
     "decline": "Rechazar"
+  },
+  "authAction": {
+    "verifying": "Verificando…",
+    "email_verified_success": "Su dirección de correo electrónico ha sido verificada con éxito.",
+    "invalid_link": "Enlace inválido o caducado.",
+    "verifying_link": "Verificando enlace…",
+    "unknown_action": "Acción desconocida.",
+    "processing": "Procesando…",
+    "please_wait": "Por favor espere.",
+    "success": "Éxito",
+    "error": "Error",
+    "error_occurred": "Ha ocurrido un error.",
+    "request_new_link": "Puede solicitar un nuevo enlace desde la página de inicio de sesión.",
+    "go_to_login": "Ir al inicio de sesión",
+    "reset_password_title": "Restablecer su contraseña",
+    "new_password": "Nueva contraseña",
+    "confirm_password": "Confirmar contraseña",
+    "validate": "Validar",
+    "password_too_short": "Contraseña demasiado corta (mín. 6).",
+    "passwords_no_match": "Las contraseñas no coinciden.",
+    "updating_password": "Actualizando contraseña…",
+    "password_updated_redirect": "Contraseña actualizada. Redirigiendo…",
+    "password_update_failed": "No se pudo actualizar la contraseña."
   }
 }

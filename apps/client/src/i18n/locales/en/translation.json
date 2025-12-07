@@ -926,5 +926,28 @@
     "privacy_policy": "privacy policy",
     "accept": "Accept",
     "decline": "Decline"
+  },
+  "authAction": {
+    "verifying": "Verifying…",
+    "email_verified_success": "Your email address has been successfully verified.",
+    "invalid_link": "Invalid or expired link.",
+    "verifying_link": "Verifying link…",
+    "unknown_action": "Unknown action.",
+    "processing": "Processing…",
+    "please_wait": "Please wait.",
+    "success": "Success",
+    "error": "Error",
+    "error_occurred": "An error occurred.",
+    "request_new_link": "You can request a new link from the login page.",
+    "go_to_login": "Go to login",
+    "reset_password_title": "Reset your password",
+    "new_password": "New password",
+    "confirm_password": "Confirm password",
+    "validate": "Validate",
+    "password_too_short": "Password too short (min 6).",
+    "passwords_no_match": "Passwords do not match.",
+    "updating_password": "Updating password…",
+    "password_updated_redirect": "Password updated. Redirecting…",
+    "password_update_failed": "Unable to update password."
   }
 }

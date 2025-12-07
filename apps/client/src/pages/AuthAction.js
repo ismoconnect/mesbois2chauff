@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   getAuth,
   applyActionCode,
@@ -64,6 +65,7 @@ const Helper = styled.div`
 export default function AuthAction() {
   const navigate = useNavigate();
   const auth = getAuth();
+  const { t, i18n } = useTranslation();
   const [mode, setMode] = useState('');
   const [oobCode, setOobCode] = useState('');
   const [lang, setLang] = useState('fr');
@@ -80,45 +82,50 @@ export default function AuthAction() {
     setOobCode(oc);
     setLang(l);
 
+    // Change i18n language based on URL parameter
+    if (l && i18n.language !== l) {
+      i18n.changeLanguage(l);
+    }
+
     if (!m || !oc) return;
 
     if (m === 'verifyEmail') {
-      setStatus({ state: 'loading', message: 'Vérification en cours…' });
+      setStatus({ state: 'loading', message: t('authAction.verifying') });
       applyActionCode(auth, oc)
         .then(() => {
-          setStatus({ state: 'success', message: 'Votre adresse e‑mail a été vérifiée avec succès.' });
+          setStatus({ state: 'success', message: t('authAction.email_verified_success') });
         })
         .catch((e) => {
-          setStatus({ state: 'error', message: "Lien invalide ou expiré." });
+          setStatus({ state: 'error', message: t('authAction.invalid_link') });
         });
     } else if (m === 'resetPassword') {
-      // Valider le code de réinitialisation d’abord
-      setStatus({ state: 'loading', message: 'Vérification du lien…' });
+      // Valider le code de réinitialisation d'abord
+      setStatus({ state: 'loading', message: t('authAction.verifying_link') });
       verifyPasswordResetCode(auth, oc)
         .then(() => setStatus({ state: 'ready-reset', message: '' }))
-        .catch(() => setStatus({ state: 'error', message: "Lien invalide ou expiré." }));
+        .catch(() => setStatus({ state: 'error', message: t('authAction.invalid_link') }));
     } else {
-      setStatus({ state: 'error', message: "Action non reconnue." });
+      setStatus({ state: 'error', message: t('authAction.unknown_action') });
     }
-  }, [auth, navigate]);
+  }, [auth, navigate, t, i18n]);
 
   const onSubmitReset = async (e) => {
     e.preventDefault();
     if (!password || password.length < 6) {
-      setStatus({ state: 'error', message: 'Mot de passe trop court (min 6).' });
+      setStatus({ state: 'error', message: t('authAction.password_too_short') });
       return;
     }
     if (password !== password2) {
-      setStatus({ state: 'error', message: 'Les mots de passe ne correspondent pas.' });
+      setStatus({ state: 'error', message: t('authAction.passwords_no_match') });
       return;
     }
     try {
-      setStatus({ state: 'loading', message: 'Mise à jour du mot de passe…' });
+      setStatus({ state: 'loading', message: t('authAction.updating_password') });
       await confirmPasswordReset(auth, oobCode, password);
-      setStatus({ state: 'success', message: 'Mot de passe mis à jour. Redirection…' });
-      setTimeout(() => navigate('/login', { replace: true }), 1200);
+      setStatus({ state: 'success', message: t('authAction.password_updated_redirect') });
+      setTimeout(() => navigate(`/${lang}/login`, { replace: true }), 1200);
     } catch (e) {
-      setStatus({ state: 'error', message: 'Impossible de mettre à jour le mot de passe.' });
+      setStatus({ state: 'error', message: t('authAction.password_update_failed') });
     }
   };
 
@@ -127,48 +134,48 @@ export default function AuthAction() {
       <Card>
         {status.state === 'loading' && (
           <>
-            <Title>Traitement…</Title>
-            <Text>{status.message || 'Veuillez patienter.'}</Text>
+            <Title>{t('authAction.processing')}</Title>
+            <Text>{status.message || t('authAction.please_wait')}</Text>
           </>
         )}
 
         {status.state === 'success' && (
           <>
-            <Title>Succès</Title>
+            <Title>{t('authAction.success')}</Title>
             <Text>{status.message}</Text>
-            <Button type="button" onClick={() => navigate('/login', { replace: true })} style={{ marginTop: 12 }}>
-              Aller à la connexion
+            <Button type="button" onClick={() => navigate(`/${lang}/login`, { replace: true })} style={{ marginTop: 12 }}>
+              {t('authAction.go_to_login')}
             </Button>
           </>
         )}
 
         {status.state === 'error' && (
           <>
-            <Title>Erreur</Title>
-            <Text>{status.message || 'Une erreur est survenue.'}</Text>
-            <Helper>Vous pouvez demander un nouveau lien depuis la page de connexion.</Helper>
+            <Title>{t('authAction.error')}</Title>
+            <Text>{status.message || t('authAction.error_occurred')}</Text>
+            <Helper>{t('authAction.request_new_link')}</Helper>
           </>
         )}
 
         {status.state === 'ready-reset' && (
           <>
-            <Title>Réinitialiser votre mot de passe</Title>
+            <Title>{t('authAction.reset_password_title')}</Title>
             <form onSubmit={onSubmitReset}>
               <Input
                 type="password"
-                placeholder="Nouveau mot de passe"
+                placeholder={t('authAction.new_password')}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
               <Input
                 type="password"
-                placeholder="Confirmer le mot de passe"
+                placeholder={t('authAction.confirm_password')}
                 value={password2}
                 onChange={(e) => setPassword2(e.target.value)}
                 required
               />
-              <Button type="submit">Valider</Button>
+              <Button type="submit">{t('authAction.validate')}</Button>
             </form>
           </>
         )}

@@ -921,5 +921,28 @@
     "privacy_policy": "privacybeleid",
     "accept": "Accepteren",
     "decline": "Weigeren"
+  },
+  "authAction": {
+    "verifying": "Verifiëren…",
+    "email_verified_success": "Uw e-mailadres is succesvol geverifieerd.",
+    "invalid_link": "Ongeldige of verlopen link.",
+    "verifying_link": "Link verifiëren…",
+    "unknown_action": "Onbekende actie.",
+    "processing": "Verwerken…",
+    "please_wait": "Even geduld.",
+    "success": "Succes",
+    "error": "Fout",
+    "error_occurred": "Er is een fout opgetreden.",
+    "request_new_link": "U kunt een nieuwe link aanvragen vanaf de inlogpagina.",
+    "go_to_login": "Naar inloggen",
+    "reset_password_title": "Wachtwoord opnieuw instellen",
+    "new_password": "Nieuw wachtwoord",
+    "confirm_password": "Wachtwoord bevestigen",
+    "validate": "Valideren",
+    "password_too_short": "Wachtwoord te kort (min. 6).",
+    "passwords_no_match": "Wachtwoorden komen niet overeen.",
+    "updating_password": "Wachtwoord bijwerken…",
+    "password_updated_redirect": "Wachtwoord bijgewerkt. Doorverwijzen…",
+    "password_update_failed": "Kan wachtwoord niet bijwerken."
   }
 }

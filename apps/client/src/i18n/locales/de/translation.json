@@ -926,5 +926,28 @@
     "privacy_policy": "Datenschutzerklärung",
     "accept": "Akzeptieren",
     "decline": "Ablehnen"
+  },
+  "authAction": {
+    "verifying": "Überprüfung läuft…",
+    "email_verified_success": "Ihre E-Mail-Adresse wurde erfolgreich bestätigt.",
+    "invalid_link": "Ungültiger oder abgelaufener Link.",
+    "verifying_link": "Link wird überprüft…",
+    "unknown_action": "Unbekannte Aktion.",
+    "processing": "Verarbeitung…",
+    "please_wait": "Bitte warten.",
+    "success": "Erfolg",
+    "error": "Fehler",
+    "error_occurred": "Ein Fehler ist aufgetreten.",
+    "request_new_link": "Sie können einen neuen Link von der Anmeldeseite anfordern.",
+    "go_to_login": "Zur Anmeldung",
+    "reset_password_title": "Passwort zurücksetzen",
+    "new_password": "Neues Passwort",
+    "confirm_password": "Passwort bestätigen",
+    "validate": "Bestätigen",
+    "password_too_short": "Passwort zu kurz (min. 6).",
+    "passwords_no_match": "Passwörter stimmen nicht überein.",
+    "updating_password": "Passwort wird aktualisiert…",
+    "password_updated_redirect": "Passwort aktualisiert. Weiterleitung…",
+    "password_update_failed": "Passwort konnte nicht aktualisiert werden."
   }
 }
