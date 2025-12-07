@@ -231,7 +231,10 @@
     "login_error_invalid_email": "Invalid email address",
     "login_error_user_disabled": "Account disabled",
     "login_error_too_many_attempts": "Too many attempts. Try again later",
-    "login_error_network": "Network error"
+    "login_error_network": "Network error",
+    "error_email_already_in_use": "This email address is already in use. Please log in or use another address.",
+    "error_invalid_email": "Invalid email address. Please check the format.",
+    "error_weak_password": "Password too weak. Use at least 6 characters."
   },
   "auth": {
     "login_title": "Login",

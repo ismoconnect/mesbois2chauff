@@ -231,7 +231,10 @@
     "login_error_invalid_email": "Ungültige E-Mail-Adresse",
     "login_error_user_disabled": "Konto deaktiviert",
     "login_error_too_many_attempts": "Zu viele Versuche. Versuchen Sie es später erneut",
-    "login_error_network": "Netzwerkfehler"
+    "login_error_network": "Netzwerkfehler",
+    "error_email_already_in_use": "Diese E-Mail-Adresse wird bereits verwendet. Bitte melden Sie sich an oder verwenden Sie eine andere Adresse.",
+    "error_invalid_email": "Ungültige E-Mail-Adresse. Bitte überprüfen Sie das Format.",
+    "error_weak_password": "Passwort zu schwach. Verwenden Sie mindestens 6 Zeichen."
   },
   "auth": {
     "login_title": "Anmeldung",

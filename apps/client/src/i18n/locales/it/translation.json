@@ -226,7 +226,10 @@
     "error_order_failed": "Errore durante la creazione dell'ordine",
     "ok_button": "OK",
     "click_to_login": "Clicca qui per accedere",
-    "click_to_enter_code": "Clicca qui per inserire il tuo codice"
+    "click_to_enter_code": "Clicca qui per inserire il tuo codice",
+    "error_email_already_in_use": "Questo indirizzo email è già in uso. Effettua il login o usa un altro indirizzo.",
+    "error_invalid_email": "Indirizzo email non valido. Verifica il formato.",
+    "error_weak_password": "Password troppo debole. Usa almeno 6 caratteri."
   },
   "auth": {
     "login_title": "Accedi",

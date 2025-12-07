@@ -226,7 +226,10 @@
     "error_order_failed": "Fout bij het aanmaken van de bestelling",
     "ok_button": "OK",
     "click_to_login": "Klik hier om in te loggen",
-    "click_to_enter_code": "Klik hier om uw code in te voeren"
+    "click_to_enter_code": "Klik hier om uw code in te voeren",
+    "error_email_already_in_use": "Dit e-mailadres is al in gebruik. Log in of gebruik een ander adres.",
+    "error_invalid_email": "Ongeldig e-mailadres. Controleer het formaat.",
+    "error_weak_password": "Wachtwoord te zwak. Gebruik minimaal 6 tekens."
   },
   "auth": {
     "login_title": "Inloggen",

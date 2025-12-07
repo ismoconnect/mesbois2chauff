@@ -226,7 +226,10 @@
     "error_order_failed": "Erro ao criar o pedido",
     "ok_button": "OK",
     "click_to_login": "Clique aqui para fazer login",
-    "click_to_enter_code": "Clique aqui para inserir seu código"
+    "click_to_enter_code": "Clique aqui para inserir seu código",
+    "error_email_already_in_use": "Este endereço de e-mail já está em uso. Faça login ou use outro endereço.",
+    "error_invalid_email": "Endereço de e-mail inválido. Verifique o formato.",
+    "error_weak_password": "Senha muito fraca. Use pelo menos 6 caracteres."
   },
   "auth": {
     "login_title": "Entrar",

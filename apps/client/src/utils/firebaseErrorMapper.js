@@ -5,6 +5,10 @@ export const getFirebaseAuthErrorKey = (error) => {
     const errorString = typeof error === 'string' ? error : error.message || error.code || '';
 
     // Map Firebase error codes to translation keys
+    if (errorString.includes('auth/email-already-in-use')) {
+        return 'checkout.error_email_already_in_use';
+    }
+
     if (errorString.includes('auth/invalid-login-credentials') ||
         errorString.includes('auth/wrong-password') ||
         errorString.includes('auth/user-not-found')) {
@@ -12,7 +16,7 @@ export const getFirebaseAuthErrorKey = (error) => {
     }
 
     if (errorString.includes('auth/invalid-email')) {
-        return 'checkout.login_error_invalid_email';
+        return 'checkout.error_invalid_email';
     }
 
     if (errorString.includes('auth/user-disabled')) {
@@ -25,6 +29,10 @@ export const getFirebaseAuthErrorKey = (error) => {
 
     if (errorString.includes('auth/network-request-failed')) {
         return 'checkout.login_error_network';
+    }
+
+    if (errorString.includes('auth/weak-password')) {
+        return 'checkout.error_weak_password';
     }
 
     // Default fallback

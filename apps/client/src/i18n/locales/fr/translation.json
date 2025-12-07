@@ -231,7 +231,10 @@
     "login_error_invalid_email": "Adresse email invalide",
     "login_error_user_disabled": "Compte désactivé",
     "login_error_too_many_attempts": "Trop de tentatives. Réessayez plus tard",
-    "login_error_network": "Erreur de connexion"
+    "login_error_network": "Erreur de connexion",
+    "error_email_already_in_use": "Cette adresse email est déjà utilisée. Veuillez vous connecter ou utiliser une autre adresse.",
+    "error_invalid_email": "Adresse email invalide. Veuillez vérifier le format.",
+    "error_weak_password": "Mot de passe trop faible. Utilisez au moins 6 caractères."
   },
   "auth": {
     "login_title": "Connexion",

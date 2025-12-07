@@ -519,7 +519,7 @@ const Checkout = () => {
         });
         if (!regRes.success) {
           setLoading(false);
-          return toast.error(regRes.error || t('checkout.error_create_account_failed'));
+          return toast.error(t(getFirebaseAuthErrorKey(regRes.error)));
         }
         currentUser = regRes.user;
         try {

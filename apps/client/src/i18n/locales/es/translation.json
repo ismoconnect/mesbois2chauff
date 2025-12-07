@@ -226,7 +226,10 @@
     "error_order_failed": "Error al crear el pedido",
     "ok_button": "OK",
     "click_to_login": "Haga clic aquí para iniciar sesión",
-    "click_to_enter_code": "Haga clic aquí para ingresar su código"
+    "click_to_enter_code": "Haga clic aquí para ingresar su código",
+    "error_email_already_in_use": "Esta dirección de correo electrónico ya está en uso. Inicie sesión o use otra dirección.",
+    "error_invalid_email": "Dirección de correo electrónico inválida. Verifique el formato.",
+    "error_weak_password": "Contraseña demasiado débil. Use al menos 6 caracteres."
   },
   "auth": {
     "login_title": "Iniciar sesión",
