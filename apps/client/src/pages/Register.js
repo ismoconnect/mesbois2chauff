@@ -258,11 +258,13 @@ const Register = () => {
       if (result.success) {
         try {
           await sendEmailVerification(result.user, {
-            url: 'https://jeferco.boisdechauffages.com/auth/action',
+            url: 'https://webshopbrennholzkaufen.boisdechauffages.com/auth/action',
             handleCodeInApp: true
           });
           toast.success(t('auth.register_email_verification'));
-        } catch (_) {
+        } catch (errCode) {
+          console.error("Erreur envoi email verification:", errCode);
+          // On notifie quand même le succès de la création, mais on peut avertir pour l'email
           toast.success(t('auth.register_success'));
         }
         navigate(`/${currentLang}/dashboard`, { replace: true });

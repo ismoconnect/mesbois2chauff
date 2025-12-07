@@ -157,6 +157,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       {/* Redirect root to default language */}
+      <Route path="/auth/action" element={<AuthAction />} />
       <Route path="/" element={<LanguageRedirect />} />
 
       {/* All routes with language prefix */}
@@ -182,7 +183,7 @@ const router = createBrowserRouter(
           <Route path="payment/bank" element={<BankTransfer />} />
           <Route path="payment/paypal" element={<PayPalPayment />} />
           <Route path="orders/:id/review" element={<PrivateRoute><OrderReview /></PrivateRoute>} />
-          <Route path="auth/action" element={<AuthAction />} />
+
           <Route path="settings" element={<PrivateRoute><Settings /></PrivateRoute>} />
           <Route path="suivi" element={<PrivateRoute><Suivi /></PrivateRoute>} />
           <Route path="suivi/:id" element={<PrivateRoute><SuiviItinerary /></PrivateRoute>} />

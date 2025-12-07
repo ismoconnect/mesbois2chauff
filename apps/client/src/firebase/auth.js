@@ -1,4 +1,4 @@
-import { 
+import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
@@ -17,12 +17,12 @@ export const createUser = async (email, password, userData) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
-    
+
     // Mettre à jour le profil
     await updateProfile(user, {
       displayName: userData.displayName
     });
-    
+
     // Créer le document utilisateur dans Firestore
     await setDoc(doc(db, 'users', user.uid), {
       uid: user.uid,
@@ -40,7 +40,7 @@ export const createUser = async (email, password, userData) => {
         emailPromotions: false
       }
     });
-    
+
     return { success: true, user };
   } catch (error) {
     return { success: false, error: error.message };
@@ -85,7 +85,7 @@ export const getUserData = async (uid) => {
 export const resetPassword = async (email) => {
   try {
     await sendPasswordResetEmail(auth, email, {
-      url: 'https://jeferco.boisdechauffages.com/auth/action',
+      url: 'https://webshopbrennholzkaufen.boisdechauffages.com/auth/action',
       handleCodeInApp: true
     });
     return { success: true };

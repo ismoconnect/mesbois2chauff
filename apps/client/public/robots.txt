@@ -6,4 +6,4 @@ Disallow: /payment/
 Disallow: /suivi/
 Disallow: /billing/
 
-Sitemap: https://jeferco.boisdechauffages.com/sitemap.xml
+Sitemap: https://webshopbrennholzkaufen.boisdechauffages.com/sitemap.xml
