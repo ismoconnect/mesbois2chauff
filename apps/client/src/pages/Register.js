@@ -374,6 +374,8 @@ const Register = () => {
                 placeholder={t('auth.register_email_placeholder')}
                 value={formData.email}
                 onChange={handleChange}
+                pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                title={t('checkout.error_invalid_email')}
                 required
               />
             </InputGroup>

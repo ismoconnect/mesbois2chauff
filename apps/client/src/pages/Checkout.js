@@ -1097,6 +1097,8 @@ const Checkout = () => {
                   placeholder={t('checkout.email')}
                   value={formData.email}
                   onChange={handleChange}
+                  pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                  title={t('checkout.error_invalid_email')}
                   required
                   $withLeftIcon
                 />
