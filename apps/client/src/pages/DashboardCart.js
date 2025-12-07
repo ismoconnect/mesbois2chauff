@@ -381,6 +381,7 @@ const DashboardCart = () => {
               email: customerEmail,
             },
             newUser: false,
+            lang: currentLang, // Add language for email translation
           };
           fetch('/api/order-confirmation', {
             method: 'POST',

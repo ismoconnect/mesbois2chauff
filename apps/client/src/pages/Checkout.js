@@ -602,6 +602,7 @@ const Checkout = () => {
               country: customer.country,
             },
             newUser: wasGuest,
+            lang: currentLang, // Add language for email translation
           };
           // Do not await to avoid blocking UX; failures are silent
           fetch('/api/order-confirmation', {
