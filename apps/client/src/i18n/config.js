@@ -1,6 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import { getAuth } from 'firebase/auth';
 
 // Import translations
 import translationEN from './locales/en/translation.json';
@@ -37,5 +38,28 @@ i18n
             escapeValue: false,
         },
     });
+
+// Synchronize Firebase Auth language with i18n language
+i18n.on('languageChanged', (lng) => {
+    try {
+        const auth = getAuth();
+        if (auth) {
+            auth.languageCode = lng;
+            console.log(`🌍 Firebase auth language set to: ${lng}`);
+        }
+    } catch (error) {
+        console.warn('Could not set Firebase auth language:', error);
+    }
+});
+
+// Set initial language
+try {
+    const auth = getAuth();
+    if (auth) {
+        auth.languageCode = i18n.language || 'fr';
+    }
+} catch (error) {
+    console.warn('Could not set initial Firebase auth language:', error);
+}
 
 export default i18n;
