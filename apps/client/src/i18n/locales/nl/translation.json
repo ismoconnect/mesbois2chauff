@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "brennholzkaufen - Premium Brandhout | Snelle Levering",
+    "description": "Verkoop van brandhout, blokken, pellets en korrels. Snelle levering aan huis."
+  },
   "nav": {
     "home": "Home",
     "products": "Producten",
@@ -15,7 +19,7 @@
     "business_hours": "Ma–Za 9u–18u"
   },
   "home": {
-    "hero_title": "MESBOIS d'chauff",
+    "hero_title": "brennholzkaufen",
     "hero_subtitle": "Uw premium brandhout",
     "hero_cta": "Ontdek onze producten",
     "categories_title": "Ons Productassortiment",
@@ -911,5 +915,11 @@
     "passwords_no_match": "De nieuwe wachtwoorden komen niet overeen.",
     "password_updated": "Wachtwoord succesvol bijgewerkt",
     "password_error": "Kan wachtwoord niet wijzigen. Controleer het oude wachtwoord."
+  },
+  "cookies": {
+    "banner_text": "We gebruiken cookies om uw ervaring te verbeteren, verkeer te analyseren en bepaalde inhoud te personaliseren. U kunt niet-essentiële cookies accepteren of weigeren. Voor meer informatie, zie ons",
+    "privacy_policy": "privacybeleid",
+    "accept": "Accepteren",
+    "decline": "Weigeren"
   }
 }

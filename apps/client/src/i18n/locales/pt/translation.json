@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "brennholzkaufen - Lenha Premium | Entrega Rápida",
+    "description": "Venda de lenha, troncos, pellets e grânulos. Entrega rápida ao domicílio."
+  },
   "nav": {
     "home": "Início",
     "products": "Produtos",
@@ -15,7 +19,7 @@
     "business_hours": "Seg–Sáb 9h–18h"
   },
   "home": {
-    "hero_title": "MESBOIS d'chauff",
+    "hero_title": "brennholzkaufen",
     "hero_subtitle": "A sua lenha de qualidade premium",
     "hero_cta": "Descobrir os nossos produtos",
     "categories_title": "A Nossa Gama de Produtos",
@@ -911,5 +915,11 @@
     "passwords_no_match": "As novas senhas não correspondem.",
     "password_updated": "Senha atualizada com sucesso",
     "password_error": "Não foi possível alterar a senha. Verifique a senha antiga."
+  },
+  "cookies": {
+    "banner_text": "Utilizamos cookies para melhorar a sua experiência, analisar o tráfego e personalizar determinados conteúdos. Pode aceitar ou recusar cookies não essenciais. Para saber mais, consulte a nossa",
+    "privacy_policy": "política de privacidade",
+    "accept": "Aceitar",
+    "decline": "Recusar"
   }
 }

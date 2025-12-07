@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "brennholzkaufen - Leña Premium | Entrega Rápida",
+    "description": "Venta de leña, troncos, pellets y gránulos. Entrega rápida a domicilio."
+  },
   "nav": {
     "home": "Inicio",
     "products": "Productos",
@@ -15,7 +19,7 @@
     "business_hours": "Lun–Sáb 9h–18h"
   },
   "home": {
-    "hero_title": "MESBOIS d'chauff",
+    "hero_title": "brennholzkaufen",
     "hero_subtitle": "Su leña de calidad premium",
     "hero_cta": "Descubrir nuestros productos",
     "categories_title": "Nuestra Gama de Productos",
@@ -911,5 +915,11 @@
     "passwords_no_match": "Las nuevas contraseñas no coinciden.",
     "password_updated": "Contraseña actualizada con éxito",
     "password_error": "No se pudo cambiar la contraseña. Verifique la contraseña anterior."
+  },
+  "cookies": {
+    "banner_text": "Utilizamos cookies para mejorar su experiencia, analizar el tráfico y personalizar ciertos contenidos. Puede aceptar o rechazar las cookies no esenciales. Para obtener más información, consulte nuestra",
+    "privacy_policy": "política de privacidad",
+    "accept": "Aceptar",
+    "decline": "Rechazar"
   }
 }

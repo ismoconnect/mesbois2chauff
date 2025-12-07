@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "brennholzkaufen - Premium-Brennholz | Schnelle Lieferung",
+    "description": "Verkauf von Brennholz, Holzscheiten, Pellets und Granulaten. Schnelle Lieferung zu Ihnen nach Hause."
+  },
   "nav": {
     "home": "Startseite",
     "products": "Produkte",
@@ -15,7 +19,7 @@
     "business_hours": "Mo–Sa 9–18 Uhr"
   },
   "home": {
-    "hero_title": "MESBOIS d'chauff",
+    "hero_title": "brennholzkaufen",
     "hero_subtitle": "Ihr Premium-Brennholz",
     "hero_cta": "Unsere Produkte entdecken",
     "categories_title": "Unser Produktsortiment",
@@ -916,5 +920,11 @@
     "passwords_no_match": "Die neuen Passwörter stimmen nicht überein.",
     "password_updated": "Passwort erfolgreich aktualisiert",
     "password_error": "Passwort konnte nicht geändert werden. Überprüfen Sie das alte Passwort."
+  },
+  "cookies": {
+    "banner_text": "Wir verwenden Cookies, um Ihre Erfahrung zu verbessern, den Verkehr zu analysieren und bestimmte Inhalte zu personalisieren. Sie können nicht wesentliche Cookies akzeptieren oder ablehnen. Weitere Informationen finden Sie in unserer",
+    "privacy_policy": "Datenschutzerklärung",
+    "accept": "Akzeptieren",
+    "decline": "Ablehnen"
   }
 }

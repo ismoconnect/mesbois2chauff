@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 
 const BannerContainer = styled.div`
   position: fixed;
@@ -82,6 +84,9 @@ const COOKIE_KEY = 'cookie-consent';
 
 const CookieBanner = () => {
   const [visible, setVisible] = useState(false);
+  const { t, i18n } = useTranslation();
+  const { lang } = useParams();
+  const currentLang = lang || i18n.language || 'fr';
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -110,16 +115,15 @@ const CookieBanner = () => {
     <BannerContainer>
       <BannerInner>
         <BannerText>
-          Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic et personnaliser certains
-          contenus. Vous pouvez accepter ou refuser les cookies non essentiels. Pour en savoir plus, consultez notre{' '}
-          <BannerLink href="/privacy">politique de confidentialité</BannerLink>.
+          {t('cookies.banner_text')}{' '}
+          <BannerLink href={`/${currentLang}/privacy`}>{t('cookies.privacy_policy')}</BannerLink>.
         </BannerText>
         <ButtonRow>
           <DeclineButton type="button" onClick={() => handleChoice('rejected')}>
-            Refuser
+            {t('cookies.decline')}
           </DeclineButton>
           <AcceptButton type="button" onClick={() => handleChoice('accepted')}>
-            Accepter
+            {t('cookies.accept')}
           </AcceptButton>
         </ButtonRow>
       </BannerInner>

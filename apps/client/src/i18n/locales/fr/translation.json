@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "brennholzkaufen - Bois de Chauffage de Qualité | Livraison Rapide",
+    "description": "Vente de bois de chauffage, bûches, granulés et pellets. Livraison rapide chez vous."
+  },
   "nav": {
     "home": "Accueil",
     "products": "Produits",
@@ -15,7 +19,7 @@
     "business_hours": "Lun–Sam 9h–18h"
   },
   "home": {
-    "hero_title": "MESBOIS d'chauff",
+    "hero_title": "brennholzkaufen",
     "hero_subtitle": "Votre bois de chauffage de qualité premium",
     "hero_cta": "Découvrir nos produits",
     "categories_title": "Notre Gamme de Produits",
@@ -916,5 +920,11 @@
     "passwords_no_match": "Les nouveaux mots de passe ne correspondent pas.",
     "password_updated": "Mot de passe mis à jour avec succès",
     "password_error": "Impossible de changer le mot de passe. Vérifiez l'ancien mot de passe."
+  },
+  "cookies": {
+    "banner_text": "Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic et personnaliser certains contenus. Vous pouvez accepter ou refuser les cookies non essentiels. Pour en savoir plus, consultez notre",
+    "privacy_policy": "politique de confidentialité",
+    "accept": "Accepter",
+    "decline": "Refuser"
   }
 }

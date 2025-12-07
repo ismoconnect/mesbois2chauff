@@ -206,13 +206,13 @@ const SuiviItinerary = () => {
   const { id, lang } = useParams();
   const { t, i18n } = useTranslation();
   const currentLang = lang || i18n.language || 'fr';
-  
+
   React.useEffect(() => {
     if (lang && i18n.language !== lang) {
       i18n.changeLanguage(lang);
     }
   }, [lang, i18n]);
-  
+
   const { user } = useAuth();
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -290,7 +290,7 @@ const SuiviItinerary = () => {
     const doc = new jsPDF();
     doc.setFontSize(20);
     doc.setTextColor(44, 85, 48);
-    doc.text('MES BOIS', 14, 22);
+    doc.text('brennholzkaufen', 14, 22);
     doc.setFontSize(10);
     doc.setTextColor(100);
     doc.text(`Commande #${order.id.slice(-8)}`, 14, 30);
@@ -339,7 +339,7 @@ const SuiviItinerary = () => {
     doc.setFont(undefined, 'normal');
     doc.setTextColor(150);
     doc.text('Merci de votre confiance.', 14, finalY + 30);
-    doc.text('Document généré automatiquement par MesBois.', 14, finalY + 35);
+    doc.text('Document généré automatiquement par brennholzkaufen.', 14, finalY + 35);
     doc.save(`facture_${order.id.slice(-8)}.pdf`);
   };
 

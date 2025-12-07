@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "brennholzkaufen - Legna da Ardere Premium | Consegna Rapida",
+    "description": "Vendita di legna da ardere, tronchi, pellet e granuli. Consegna rapida a domicilio."
+  },
   "nav": {
     "home": "Home",
     "products": "Prodotti",
@@ -15,7 +19,7 @@
     "business_hours": "Lun–Sab 9–18"
   },
   "home": {
-    "hero_title": "MESBOIS d'chauff",
+    "hero_title": "brennholzkaufen",
     "hero_subtitle": "La tua legna da ardere di qualità premium",
     "hero_cta": "Scopri i nostri prodotti",
     "categories_title": "La Nostra Gamma di Prodotti",
@@ -911,5 +915,11 @@
     "passwords_no_match": "Le nuove password non corrispondono.",
     "password_updated": "Password aggiornata con successo",
     "password_error": "Impossibile cambiare la password. Verifica la vecchia password."
+  },
+  "cookies": {
+    "banner_text": "Utilizziamo i cookie per migliorare la tua esperienza, analizzare il traffico e personalizzare alcuni contenuti. Puoi accettare o rifiutare i cookie non essenziali. Per saperne di più, consulta la nostra",
+    "privacy_policy": "informativa sulla privacy",
+    "accept": "Accetta",
+    "decline": "Rifiuta"
   }
 }

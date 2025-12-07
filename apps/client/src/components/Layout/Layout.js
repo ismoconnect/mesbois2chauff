@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet';
 import styled, { css } from 'styled-components';
 import Footer from './Footer';
 
@@ -111,11 +113,18 @@ const Layout = ({ children, $noHeader }) => {
     prevPathnameRef.current = location.pathname;
   }, [location.pathname]);
 
+  const { t } = useTranslation();
+
   return (
     <LayoutContainer $noHeader={$noHeader}>
+      <Helmet>
+        <title>{t('meta.title', 'brennholzkaufen - Bois de Chauffage')}</title>
+        <meta name="description" content={t('meta.description', 'Vente de bois de chauffage de qualité.')} />
+      </Helmet>
       <MainContent>
         {children}
       </MainContent>
+
       <Footer />
     </LayoutContainer>
   );

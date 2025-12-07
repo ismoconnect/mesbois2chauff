@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "brennholzkaufen - Premium Firewood | Fast Delivery",
+    "description": "Sale of firewood, logs, pellets and granules. Fast delivery to your door."
+  },
   "nav": {
     "home": "Home",
     "products": "Products",
@@ -15,7 +19,7 @@
     "business_hours": "Mon–Sat 9am–6pm"
   },
   "home": {
-    "hero_title": "MESBOIS d'chauff",
+    "hero_title": "brennholzkaufen",
     "hero_subtitle": "Your premium quality firewood",
     "hero_cta": "Discover our products",
     "categories_title": "Our Product Range",
@@ -916,5 +920,11 @@
     "passwords_no_match": "The new passwords do not match.",
     "password_updated": "Password updated successfully",
     "password_error": "Unable to change password. Check the old password."
+  },
+  "cookies": {
+    "banner_text": "We use cookies to improve your experience, analyze traffic and personalize certain content. You can accept or decline non-essential cookies. To learn more, see our",
+    "privacy_policy": "privacy policy",
+    "accept": "Accept",
+    "decline": "Decline"
   }
 }
