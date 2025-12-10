@@ -852,6 +852,22 @@
       "delivered": "Geleverd",
       "cancelled": "Geannuleerd",
       "unknown": "Onbekend"
+    },
+    "pdf": {
+      "order": "Bestelling",
+      "date": "Datum",
+      "status": "Status",
+      "delivery_address": "Bezorgadres",
+      "phone": "Tel",
+      "article": "Artikel",
+      "qty": "Aantal",
+      "unit_price": "Eenheidsprijs",
+      "total": "Total",
+      "subtotal": "Subtotaal",
+      "delivery": "Levering",
+      "thank_you": "Bedankt voor uw vertrouwen.",
+      "auto_generated": "Document automatisch gegenereerd door brennholzkaufen.",
+      "invoice": "factuur"
     }
   },
   "suiviItinerary": {
@@ -947,5 +963,9 @@
     "updating_password": "Wachtwoord bijwerken…",
     "password_updated_redirect": "Wachtwoord bijgewerkt. Doorverwijzen…",
     "password_update_failed": "Kan wachtwoord niet bijwerken."
+  },
+  "seo": {
+    "default_title": "brennholzkaufen - Kwaliteitsbrandhout | Snelle Levering",
+    "default_description": "Verkoop van kwaliteitsbrandhout. Blokken, pellets en houtpellets bij u thuis bezorgd."
   }
 }

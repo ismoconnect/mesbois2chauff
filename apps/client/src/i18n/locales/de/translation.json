@@ -857,6 +857,22 @@
       "delivered": "Geliefert",
       "cancelled": "Storniert",
       "unknown": "Unbekannt"
+    },
+    "pdf": {
+      "order": "Bestellung",
+      "date": "Datum",
+      "status": "Status",
+      "delivery_address": "Lieferadresse",
+      "phone": "Tel",
+      "article": "Artikel",
+      "qty": "Menge",
+      "unit_price": "Stückpreis",
+      "total": "Total",
+      "subtotal": "Zwischensumme",
+      "delivery": "Lieferung",
+      "thank_you": "Vielen Dank für Ihr Vertrauen.",
+      "auto_generated": "Dokument automatisch generiert von brennholzkaufen.",
+      "invoice": "rechnung"
     }
   },
   "suiviItinerary": {
@@ -952,5 +968,9 @@
     "updating_password": "Passwort wird aktualisiert…",
     "password_updated_redirect": "Passwort aktualisiert. Weiterleitung…",
     "password_update_failed": "Passwort konnte nicht aktualisiert werden."
+  },
+  "seo": {
+    "default_title": "brennholzkaufen - Qualitäts-Brennholz | Schnelle Lieferung",
+    "default_description": "Verkauf von hochwertigem Brennholz. Scheite, Pellets und Holzpellets direkt zu Ihnen nach Hause geliefert."
   }
 }

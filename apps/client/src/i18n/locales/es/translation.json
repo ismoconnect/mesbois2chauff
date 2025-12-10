@@ -852,6 +852,22 @@
       "delivered": "Entregado",
       "cancelled": "Cancelado",
       "unknown": "Desconocido"
+    },
+    "pdf": {
+      "order": "Pedido",
+      "date": "Fecha",
+      "status": "Estado",
+      "delivery_address": "Dirección de entrega",
+      "phone": "Tel",
+      "article": "Artículo",
+      "qty": "Cant.",
+      "unit_price": "Precio Unit.",
+      "total": "Total",
+      "subtotal": "Subtotal",
+      "delivery": "Entrega",
+      "thank_you": "Gracias por su confianza.",
+      "auto_generated": "Documento generado automáticamente por brennholzkaufen.",
+      "invoice": "factura"
     }
   },
   "suiviItinerary": {
@@ -947,5 +963,9 @@
     "updating_password": "Actualizando contraseña…",
     "password_updated_redirect": "Contraseña actualizada. Redirigiendo…",
     "password_update_failed": "No se pudo actualizar la contraseña."
+  },
+  "seo": {
+    "default_title": "brennholzkaufen - Leña de Calidad | Entrega Rápida",
+    "default_description": "Venta de leña de calidad. Troncos, pellets y gránulos de madera entregados en su hogar."
   }
 }
