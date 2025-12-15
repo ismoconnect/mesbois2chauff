@@ -291,7 +291,7 @@ const Contact = () => {
             <FiPhone size={20} />
             <div>
               <h4>{t('contact.phone_label')}</h4>
-              <p>+33 1 23 45 67 89</p>
+              <p>+49 1633637236</p>
             </div>
           </InfoItem>
 
@@ -299,7 +299,7 @@ const Contact = () => {
             <FiMail size={20} />
             <div>
               <h4>{t('contact.email_label')}</h4>
-              <p>contact@boisdechauffage.fr</p>
+              <p>brennholzkaufen@monsupport-app.com</p>
             </div>
           </InfoItem>
 
