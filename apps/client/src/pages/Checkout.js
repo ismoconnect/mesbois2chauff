@@ -13,6 +13,7 @@ import { getCouponByCode, validateAndComputeDiscount } from '../firebase/coupons
 import { translateProductName } from '../utils/productTranslations';
 import { getFirebaseAuthErrorKey } from '../utils/firebaseErrorMapper';
 import { isValidEmail } from '../utils/emailValidator';
+import { trackDualEvent } from '../lib/meta/capi';
 
 const CheckoutContainer = styled.div`
   max-width: 1400px;
@@ -369,6 +370,19 @@ const Checkout = () => {
   const [acceptTerms, setAcceptTerms] = useState(false);
 
   const couponSectionRef = useRef(null);
+  const purchaseTrackedRef = useRef(false);
+
+  // Meta Pixel + CAPI: Track Initiate Checkout
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      trackDualEvent('InitiateCheckout', {
+        content_ids: cartItems.map(it => it.id),
+        content_type: 'product',
+        value: total,
+        currency: 'EUR'
+      }, user ? { email: user.email, ...userData } : {});
+    }
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -624,6 +638,18 @@ const Checkout = () => {
           }
         } else {
           navigate(`/${currentLang}/billing`);
+        }
+
+        // Meta Pixel + CAPI: Track Purchase (Deduplicated with event_id)
+        if (!purchaseTrackedRef.current) {
+          purchaseTrackedRef.current = true;
+          trackDualEvent('Purchase', {
+            content_ids: orderData.items.map(it => it.id),
+            content_type: 'product',
+            value: orderData.total,
+            currency: 'EUR',
+            transaction_id: result.id
+          }, orderData.customerInfo);
         }
       } else {
         toast.error(result.error);

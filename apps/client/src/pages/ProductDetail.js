@@ -8,6 +8,8 @@ import { useProductImages } from '../hooks/useProductImages';
 import { getProductById } from '../firebase/products';
 import { products as catalogue } from '../data/catalogue.js';
 import { translateProductName } from '../utils/productTranslations';
+import { trackPixelEvent } from '../lib/meta/pixel';
+import { trackDualEvent } from '../lib/meta/capi';
 import toast from 'react-hot-toast';
 
 
@@ -277,6 +279,18 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [quantity, setQuantity] = useState(1);
+
+  useEffect(() => {
+    if (product) {
+      trackPixelEvent('ViewContent', {
+        content_name: product.name,
+        content_ids: [product.id],
+        content_type: 'product',
+        value: product.price,
+        currency: 'EUR'
+      });
+    }
+  }, [product]);
 
   useEffect(() => {
     const fetchProduct = async () => {

@@ -10,6 +10,7 @@ import Header from './components/Layout/Header';
 import CookieBanner from './components/Layout/CookieBanner';
 import styled from 'styled-components';
 import PrivateRoute from './components/Auth/PrivateRoute';
+import { useMetaPixel } from './hooks/useMetaPixel';
 import './i18n';
 
 // Pages (client) – eager where needed
@@ -84,6 +85,7 @@ function LanguageWrapper() {
 }
 
 function RootLayout() {
+  useMetaPixel();
   const location = useLocation();
   const path = location.pathname || '';
 

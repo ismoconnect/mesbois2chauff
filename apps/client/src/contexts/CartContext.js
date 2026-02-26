@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useEffect, useRef } from 'r
 import { doc, getDoc, setDoc, onSnapshot, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useAuth } from './AuthContext';
+import { trackDualEvent } from '../lib/meta/capi';
 
 const CartContext = createContext();
 
@@ -39,7 +40,7 @@ export const CartProvider = ({ children }) => {
     if (savedCart) {
       try {
         setCartItems(JSON.parse(savedCart));
-      } catch (error) {}
+      } catch (error) { }
     }
   }, []);
 
@@ -83,7 +84,7 @@ export const CartProvider = ({ children }) => {
             const firstName = displayName ? displayName.split(' ')[0] : '';
             const lastName = displayName ? displayName.split(' ').slice(1).join(' ') : '';
             await setDoc(cartRef, { items: normalizeCartItems(merged), updatedAt: serverTimestamp(), email: user?.email || '', name: `${firstName} ${lastName}`.trim() }, { merge: true });
-          } catch (e) {}
+          } catch (e) { }
         } else {
           const localStr = localStorage.getItem('bois-de-chauffage-cart');
           const localItems = (() => { try { return JSON.parse(localStr || '[]'); } catch { return []; } })();
@@ -92,7 +93,7 @@ export const CartProvider = ({ children }) => {
             const firstName = displayName ? displayName.split(' ')[0] : '';
             const lastName = displayName ? displayName.split(' ').slice(1).join(' ') : '';
             await setDoc(cartRef, { items: normalizeCartItems(localItems), updatedAt: serverTimestamp(), email: user?.email || '', name: `${firstName} ${lastName}`.trim() }, { merge: true });
-          } catch (e) {}
+          } catch (e) { }
         }
 
         unsubFn = onSnapshot(cartRef, (docSnap) => {
@@ -105,9 +106,9 @@ export const CartProvider = ({ children }) => {
           if (!items.length) return;
 
           setCartItems(items);
-        }, (e) => {});
+        }, (e) => { });
       } catch (e) {
-        
+
         return; // rester en local
       }
     };
@@ -124,7 +125,7 @@ export const CartProvider = ({ children }) => {
   const addToCart = (product, quantity = 1) => {
     setCartItems(prevItems => {
       const existingItem = prevItems.find(item => item.id === product.id);
-      
+
       if (existingItem) {
         const newItems = prevItems.map(item =>
           item.id === product.id
@@ -139,6 +140,16 @@ export const CartProvider = ({ children }) => {
           const lastName = displayName ? displayName.split(' ').slice(1).join(' ') : '';
           setDoc(cartRef, { items: normalizeCartItems(newItems), updatedAt: serverTimestamp(), email: user?.email || '', name: `${firstName} ${lastName}`.trim() }, { merge: true });
         }
+
+        // Meta Pixel + CAPI Tracking
+        trackDualEvent('AddToCart', {
+          content_name: product.name,
+          content_ids: [product.id],
+          content_type: 'product',
+          value: product.price,
+          currency: 'EUR'
+        }, user ? { email: user.email } : {});
+
         return newItems;
       } else {
         const newItems = [...prevItems, { ...product, quantity }];
@@ -149,6 +160,16 @@ export const CartProvider = ({ children }) => {
           const lastName = displayName ? displayName.split(' ').slice(1).join(' ') : '';
           setDoc(cartRef, { items: normalizeCartItems(newItems), updatedAt: serverTimestamp(), email: user?.email || '', name: `${firstName} ${lastName}`.trim() }, { merge: true });
         }
+
+        // Meta Pixel + CAPI Tracking
+        trackDualEvent('AddToCart', {
+          content_name: product.name,
+          content_ids: [product.id],
+          content_type: 'product',
+          value: product.price,
+          currency: 'EUR'
+        }, user ? { email: user.email } : {});
+
         return newItems;
       }
     });
